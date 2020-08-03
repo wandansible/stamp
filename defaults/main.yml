@@ -1,0 +1,5 @@
+---
+stamp_file_path: "/.ansible_stamp"
+stamp_file_template: "ansible_stamp"
+stamp_file_contents: |
+    {{ ansible_date_time.iso8601 }}

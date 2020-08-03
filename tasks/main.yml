@@ -1,0 +1,9 @@
+---
+- name: Update stamp file
+  template:
+    src: "{{ stamp_file_template }}"
+    dest: "{{ stamp_file_path }}"
+    owner: "root"
+    group: "root"
+    mode: "u=rw,g=r,o=r"
+  changed_when: False
