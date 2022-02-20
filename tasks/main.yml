@@ -1,6 +1,6 @@
 ---
 - name: Update stamp file
-  template:
+  ansible.builtin.template:
     src: "{{ stamp_file_template }}"
     dest: "{{ stamp_file_path }}"
     owner: "root"
