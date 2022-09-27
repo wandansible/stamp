@@ -1,0 +1,23 @@
+---
+argument_specs:
+  main:
+    short_description: Stamp filesystem after a successful Ansible playbook run
+    description: |
+      This role stamps a machine with information about the
+      most recent Ansible playbook run against a host.
+      This should be applied at the end of a playbook so that
+      the stamp is only updated on a successful playbook run.
+    options:
+      stamp_file_path:
+        description: Path for stamp file
+        type: str
+        default: /.ansible_stamp
+
+      stamp_file_template:
+        description: Template file for the stamp
+        type: str
+        default: ansible_stamp
+
+      stamp_file_contents:
+        description: Contents for the stamp
+        type: str
