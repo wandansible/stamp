@@ -21,17 +21,17 @@ OPTIONS (= is mandatory):
 
 - stamp_file_contents
         Contents for the stamp
-        [Default: (null)]
+        default: Current ISO 8601 timestamp
         type: str
 
 - stamp_file_path
         Path for stamp file
-        [Default: /.ansible_stamp]
+        default: /.ansible_stamp
         type: str
 
 - stamp_file_template
         Template file for the stamp
-        [Default: ansible_stamp]
+        default: ansible_stamp
         type: str
 ```
 
