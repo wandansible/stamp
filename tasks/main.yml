@@ -6,4 +6,5 @@
     owner: "root"
     group: "root"
     mode: "u=rw,g=r,o=r"
+  when: stamp_file_contents != ""
   changed_when: false
