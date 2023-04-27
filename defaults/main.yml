@@ -2,4 +2,7 @@
 stamp_file_path: "/.ansible_stamp"
 stamp_file_template: "ansible_stamp"
 stamp_file_contents: |
-    {{ ansible_date_time.iso8601 }}
+  {{ ansible_date_time.iso8601 }}
+stamp_motd_path: "/etc/motd"
+stamp_motd_template: "motd"
+stamp_motd_contents: ""

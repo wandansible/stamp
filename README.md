@@ -34,6 +34,21 @@ OPTIONS (= is mandatory):
         Template file for the stamp
         default: ansible_stamp
         type: str
+
+- stamp_motd_contents
+        Contents for the motd, or empty string to not set the motd
+        default: ''
+        type: str
+
+- stamp_motd_path
+        Path for motd file
+        default: /etc/motd
+        type: str
+
+- stamp_motd_template
+        Template file for the motd
+        default: motd
+        type: str
 ```
 
 Installation
@@ -57,9 +72,17 @@ Example Playbook
 
     - hosts: all
       roles:
-         - role: wandansible.stamp
-           become: true
-           vars:
-             ansible_git_repo_hash: "{{ lookup('pipe', 'git describe --always --dirty=-dirty') }}"
-             stamp_file_contents: |
-               {{ ansible_date_time.iso8601 }} {{ ansible_git_repo_hash }}
+        - role: wandansible.stamp
+          become: true
+          vars:
+            ansible_git_repo_hash: >-
+              {{ lookup('ansible.builtin.pipe', 'git describe --always --dirty=-dirty') }}
+            stamp_file_contents: |
+              {{ ansible_date_time.iso8601 }} {{ ansible_git_repo_hash }}
+            stamp_motd_contents: |2+
+
+                Host: {{ ansible_fqdn }}
+                  OS: {{ ansible_lsb.description }}
+
+                This system is managed by ansible, and was last built:
+                    at {{ ansible_date_time.iso8601 }} from version {{ ansible_git_repo_hash }}

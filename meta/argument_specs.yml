@@ -22,3 +22,18 @@ argument_specs:
         description: Contents for the stamp, or empty string to not set the stamp file
         type: str
         default: Current ISO 8601 timestamp
+
+      stamp_motd_path:
+        description: Path for motd file
+        type: str
+        default: /etc/motd
+
+      stamp_motd_template:
+        description: Template file for the motd
+        type: str
+        default: motd
+
+      stamp_motd_contents:
+        description: Contents for the motd, or empty string to not set the motd
+        type: str
+        default: ""
