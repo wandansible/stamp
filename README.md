@@ -20,7 +20,8 @@ ENTRY POINT: main - Stamp filesystem after a successful Ansible playbook run
 OPTIONS (= is mandatory):
 
 - stamp_file_contents
-        Contents for the stamp
+        Contents for the stamp, or empty string to not set the stamp
+        file
         default: Current ISO 8601 timestamp
         type: str
 

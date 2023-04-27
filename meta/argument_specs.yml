@@ -19,5 +19,6 @@ argument_specs:
         default: ansible_stamp
 
       stamp_file_contents:
-        description: Contents for the stamp
+        description: Contents for the stamp, or empty string to not set the stamp file
         type: str
+        default: Current ISO 8601 timestamp
