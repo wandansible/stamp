@@ -77,8 +77,9 @@ Example Playbook
           vars:
             ansible_git_repo_hash: >-
               {{ lookup('ansible.builtin.pipe', 'git describe --always --dirty=-dirty') }}
+            ansible_running_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
             stamp_file_contents: |
-              {{ ansible_date_time.iso8601 }} {{ ansible_git_repo_hash }}
+              {{ ansible_date_time.iso8601 }} {{ ansible_git_repo_hash }} {{ ansible_running_user }}
             stamp_motd_contents: |2+
 
                 Host: {{ ansible_fqdn }}
