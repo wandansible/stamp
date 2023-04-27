@@ -8,3 +8,13 @@
     mode: "u=rw,g=r,o=r"
   when: stamp_file_contents != ""
   changed_when: false
+
+- name: Update motd
+  ansible.builtin.template:
+    src: "{{ stamp_motd_template }}"
+    dest: "{{ stamp_motd_path }}"
+    owner: "root"
+    group: "root"
+    mode: "u=rw,g=r,o=r"
+  when: stamp_motd_contents != ""
+  changed_when: false
