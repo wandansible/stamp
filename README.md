@@ -79,11 +79,11 @@ Example Playbook
               {{ lookup('ansible.builtin.pipe', 'git describe --always --dirty=-dirty') }}
             ansible_running_user: "{{ lookup('ansible.builtin.env', 'USER') }}"
             stamp_file_contents: |
-              {{ ansible_date_time.iso8601 }} {{ ansible_git_repo_hash }} {{ ansible_running_user }}
+              {{ ansible_facts.date_time.iso8601 }} {{ ansible_git_repo_hash }} {{ ansible_running_user }}
             stamp_motd_contents: |2+
 
-                Host: {{ ansible_fqdn }}
-                  OS: {{ ansible_lsb.description }}
+                Host: {{ ansible_facts.fqdn }}
+                  OS: {{ ansible_facts.lsb.description }}
 
                 This system is managed by ansible, and was last built:
-                    at {{ ansible_date_time.iso8601 }} from version {{ ansible_git_repo_hash }}
+                    at {{ ansible_facts.date_time.iso8601 }} from version {{ ansible_git_repo_hash }}

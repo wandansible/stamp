@@ -8,5 +8,5 @@
       vars:
         stamp_motd_contents: |2+
 
-            Host: {{ ansible_fqdn }}
-              OS: {{ ansible_lsb.description }}
+            Host: {{ ansible_facts.fqdn }}
+              OS: {{ ansible_facts.lsb.description }}
